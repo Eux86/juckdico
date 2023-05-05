@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useFetchUser } from "../api";
 import QRCode from "qrcode.react";
+import MusicPlayer from "../components/music-player/MusicPlayer";
+import ScannCard from "../components/scan-card/ScannCard";
 
 type ScanEvent = {
     type: 'scan';
@@ -14,36 +16,10 @@ type ErrorEvent = {
 
 type NfcEvent = ErrorEvent | ScanEvent;
 
-function RegisterQRCode({userId}: {userId: string}) {
-    const registerUrl = `${window.location.origin}/associate?userId=${userId}`
-    return (
-        <>
-            <div>you have to register: {registerUrl}</div>
-            <div style={{ width: '200px', height: '200px' }}>
-                <QRCode value={registerUrl} />
-            </div>
-        </>
-    )
-}
-
-function MusicPlayer({userId}: {userId: string}) {
-    const { data: user, isLoading, error,userNotFound } = useFetchUser(userId);
-
-    return (
-        <>
-            <div>loading: {isLoading ? '💭' : '😴'}</div>
-            <div>Music ID: {user?.music}</div>
-            <div>Music Error: {error}</div>
-            {userNotFound &&
-                <RegisterQRCode userId={userId} />
-            }
-        </>
-    )
-}
 
 function NfcLogin() {
 
-    const [userId, setUserId] = useState<string | undefined>('unknown');
+    const [userId, setUserId] = useState<string | undefined>();
     const [error, setError] = useState<string | undefined>();
     const [started, setStarted] = useState<boolean>(false);
 
@@ -86,9 +62,9 @@ function NfcLogin() {
         setStarted(true);
     },[]);
 
-    useEffect(() => {
-        start();
-    }, [start])
+    // useEffect(() => {
+    //     start();
+    // }, [start])
 
     return (
         <>
@@ -98,8 +74,9 @@ function NfcLogin() {
                 ? <div>started...</div>
                 : <button onClick={() => start()}>Start</button>
             }
-            {userId &&
+            {userId ?
                 <MusicPlayer userId={userId} />
+              : <ScannCard/>
             }
         </>
     )

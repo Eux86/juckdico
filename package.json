@@ -2,7 +2,7 @@
   "name": "juckdico",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://3774-62-28-9-54.ngrok-free.app",
+  "proxy": "https://6941-2003-8-1e-1a-00-3bd.ngrok-free.app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -18,7 +18,10 @@
     "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "axios": "^1.4.0",
+    "spotify-web-api-js": "^1.5.2",
+    "spotify-web-playback": "^1.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

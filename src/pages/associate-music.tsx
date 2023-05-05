@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useSaveData } from "../api";
+import React from 'react';
+import {ChooseMusic} from "../components/choose-music/ChooseMusic";
 
 function AssociateMusic() {
     const queryString = window.location.search;
@@ -11,6 +13,7 @@ function AssociateMusic() {
 
     return (
         <>
+
             <div>Hello {userId}</div>
             <div>Select your music:</div>
             <input onChange={(event) => setMusicId(event.target.value)} type="text" />
@@ -19,6 +22,7 @@ function AssociateMusic() {
             }
             <div>isLoading: {isLoading ? '💭': '😴'}</div>
             <div>error: {JSON.stringify(error)}</div>
+            <ChooseMusic/>
         </>
     )
 }
