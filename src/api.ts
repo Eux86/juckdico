@@ -48,3 +48,30 @@ const useFetch = <T>(url: string) => {
 
     return { data, isLoading, error };
 };
+
+export function useSaveData() {
+    const [data, setData] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    const url = (`${baseUrl}user/register`);
+
+    const saveData = async (formData: { serialNumber: string, music: string }): Promise<void> => {
+        setIsLoading(true);
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+            const responseData = await response.json();
+            setData(responseData);
+        } catch (error) {
+            setError(error as any);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    return {data, isLoading, error, saveData};
+}
