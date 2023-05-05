@@ -2,13 +2,13 @@ import {useEffect, useState} from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import {useSpotifyService} from "../../hooks/spotifyService/SpotifyService";
 
-const ChooseMusic = () => {
+const ChooseMusic = ({query}: {query: string}) => {
 
 
   const { getToken} = useSpotifyService();
   const [tracks, setTracks] = useState<SpotifyApi.TrackObjectFull[]>();
 
-  const [query, setQuery] = useState('');
+  // const [query, setQuery] = useState('');
 
 
   const [accessToken, setAccessToken] = useState();
@@ -34,16 +34,16 @@ const ChooseMusic = () => {
     return tracks.items;
   }
 
-  const updateQuery = (e: any) => {
-    setQuery(e.target.value)
-  }
+  // const updateQuery = (e: any) => {
+  //   setQuery(e.target.value)
+  // }
 
   return (
     <div>
-      <div>
-        <h2 style={{color:"white"}}>Search:</h2>
-        <input value={query} onChange={updateQuery}/>
-      </div>
+      {/*<div>*/}
+      {/*  <h2 style={{color:"white"}}>Search:</h2>*/}
+      {/*  <input value={query} onChange={updateQuery}/>*/}
+      {/*</div>*/}
 
       {query &&
           <iframe src={`https://open.spotify.com/embed/track/${tracks?.[0].uri.split(':')[2]}`} width="300" height="380"
