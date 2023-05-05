@@ -19,7 +19,7 @@ type NfcEvent = ErrorEvent | ScanEvent;
 
 function NfcLogin() {
 
-    const [userId, setUserId] = useState<string | undefined>();
+    const [userId, setUserId] = useState<string | undefined>('TEST');
     const [error, setError] = useState<string | undefined>();
     const [started, setStarted] = useState<boolean>(false);
 

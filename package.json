@@ -2,7 +2,7 @@
   "name": "juckdico",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://6941-2003-8-1e-1a-00-3bd.ngrok-free.app",
+  "proxy": "https://b90c-2003-8-1e-1a-00-3bd.ngrok-free.app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

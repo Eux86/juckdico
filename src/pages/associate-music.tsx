@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSaveData } from "../api";
-import React from 'react';
 import {ChooseMusic} from "../components/choose-music/ChooseMusic";
 
 function AssociateMusic() {

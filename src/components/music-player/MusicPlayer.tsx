@@ -44,23 +44,23 @@ const MusicPlayer = ({userId}: {userId: string}) => {
     <div className={classes['music-player']}>
       <img src={diconiumLogo} width={300} height={300} className={'diconiumLogo'}/>
 
-      {/*<div>loading: {isLoading ? '💭' : '😴'}</div>*/}
-      {/*<div>Music ID: {user?.music}</div>*/}
-      {/*<div>Music Error: {error}</div>*/}
+      <div>loading: {isLoading ? '💭' : '😴'}</div>
+      <div>Music ID: {user?.music}</div>
+      <div>Music Error: {error}</div>
 
-      {userNotFound ?
-          <RegisterQRCode userId={userId} />
-        :
-        <>
-          Music ID: {JSON.stringify(user)}
-          <iframe
-            // src={`https://open.spotify.com/embed/track/${tracks?.[0].uri.split(':')[2]}`}
-            width="300" height="380"
-                  frameBorder="0" allowTransparency={true}
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          ></iframe>
-        </>
-      }
+      {/*{userNotFound ?*/}
+      {/*    <RegisterQRCode userId={userId} />*/}
+      {/*  :*/}
+      {/*  <>*/}
+      {/*    Music ID: {JSON.stringify(user)}*/}
+      {/*    <iframe*/}
+      {/*      // src={`https://open.spotify.com/embed/track/${tracks?.[0].uri.split(':')[2]}`}*/}
+      {/*      width="300" height="380"*/}
+      {/*            frameBorder="0" allowTransparency={true}*/}
+      {/*            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"*/}
+      {/*    ></iframe>*/}
+      {/*  </>*/}
+      {/*}*/}
 
     </div>
   );
