@@ -46,6 +46,8 @@ const MusicPlayer = ({userId}: {userId: string}) => {
     <div className={classes['music-player']}>
       <img src={diconiumLogo} width={300} height={300} className={'diconiumLogo'}/>
 
+      <h3 className={classes['tittle']}>{user?.message}</h3>
+
       <div>loading: {isLoading ? '💭' : '😴'}</div>
       <div>Music ID: {user?.music}</div>
       <div>Music Error: {error}</div>

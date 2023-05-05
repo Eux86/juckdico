@@ -5,7 +5,7 @@ const baseUrl = '/';
 const NOTFOUNDERROR = "not-found";
 
 export const useFetchUser = (userId: string) => {
-    const result = useFetch<{ serialNumber: string; music: string }>(`${baseUrl}user/${userId}/music`);
+    const result = useFetch<{ serialNumber: string; music: string,message:string }>(`${baseUrl}user/${userId}/music`);
     if (result.error === NOTFOUNDERROR) {
         return {
             ...result,
