@@ -1,6 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useFetchUser } from "../api";
-import QRCode from "qrcode.react";
 import MusicPlayer from "../components/music-player/MusicPlayer";
 import ScannCard from "../components/scan-card/ScannCard";
 
@@ -19,7 +17,7 @@ type NfcEvent = ErrorEvent | ScanEvent;
 
 function NfcLogin() {
 
-    const [userId, setUserId] = useState<string | undefined>('046D1D42F92680');
+    const [userId, setUserId] = useState<string | undefined>();
     const [error, setError] = useState<string | undefined>();
     const [started, setStarted] = useState<boolean>(false);
 
@@ -62,18 +60,15 @@ function NfcLogin() {
         setStarted(true);
     },[]);
 
-    // useEffect(() => {
-    //     start();
-    // }, [start])
+    useEffect(() => {
+        start();
+    }, [start])
 
     return (
         <>
             <div>User ID: {userId}</div>
             <div>NFC Error: {error}</div>
-            {started
-                ? <div>started...</div>
-                : <button onClick={() => start()}>Start</button>
-            }
+            <button onClick={() => start()}>Start</button> {started && <span>Started</span>}
             {userId ?
                 <MusicPlayer userId={userId} />
               : <ScannCard/>

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import SpotifyWebApi from 'spotify-web-api-js';
 import {useSpotifyService} from "../../hooks/spotifyService/SpotifyService";
 import {useFetchUser} from "../../api";
 import {RegisterQRCode} from "../register-qr-code/RegisterQRCode";
